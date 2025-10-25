@@ -1,0 +1,76 @@
+/* 1️⃣ Box sizing and default margins */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2️⃣ Base document styles */
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3️⃣ Typographic elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+}
+
+p, ul, ol {
+  margin-bottom: 1em;
+}
+
+/* 4️⃣ Links */
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 5️⃣ Images and media */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 6️⃣ Basic form controls */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* 7️⃣ Root variables (optional) */
+:root {
+  --color-primary: #42b883;
+  --color-text: #222;
+  --color-bg: #fafafa;
+  --radius: 8px;
+  --transition: 0.2s ease;
+}
+
+/* 8️⃣ Helpers */
+.hidden { display: none !important; }
+.center { display: flex; justify-content: center; align-items: center; }
+
+/* 9️⃣ Clean scrollbar (optional, Chrome/Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
