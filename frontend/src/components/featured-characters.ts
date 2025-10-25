@@ -1,13 +1,13 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { CharacterService } from '../services/character.service';
-import type { Character } from '../services/character.service';
+import { LitElement, html, css } from "lit";
+import { customElement, state } from "lit/decorators.js";
+import { CharacterService } from "../services/character.service";
+import type { Character } from "../services/character.service";
 
-@customElement('featured-characters')
+@customElement("featured-characters")
 export class FeaturedCharacters extends LitElement {
   @state() featured: Character[] = [];
   @state() loading = true;
-  @state() error = '';
+  @state() error = "";
 
   static styles = css`
     :host {
@@ -64,12 +64,22 @@ export class FeaturedCharacters extends LitElement {
     try {
       this.loading = true;
       this.featured = await CharacterService.getFeatured();
-      this.error = '';
+      this.error = "";
     } catch (err: any) {
-      this.error = err.message || 'Failed to load featured characters.';
+      this.error = err.message || "Failed to load featured characters.";
     } finally {
       this.loading = false;
     }
+  }
+
+  handleClick(id: number) {
+    this.dispatchEvent(
+      new CustomEvent("character-selected", {
+        detail: { id },
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   render() {
@@ -91,9 +101,7 @@ export class FeaturedCharacters extends LitElement {
         ${this.featured.map(
           (char) => html`
             <li>
-              <a href="/characters/${char.id}">
-                ${char.name}
-              </a>
+              <a href="/characters/${char.id}"  @click=${() => this.handleClick(char.id)}> ${char.name} </a>
             </li>
           `
         )}

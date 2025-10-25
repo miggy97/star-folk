@@ -1,8 +1,10 @@
-import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { LitElement, html, css } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
-@customElement('app-header')
+@customElement("app-header")
 export class AppHeader extends LitElement {
+  @state() searchTerm = "";
+
   static styles = css`
     header {
       display: flex;
@@ -10,11 +12,6 @@ export class AppHeader extends LitElement {
       justify-content: space-between;
       padding: 1rem 2rem;
       border-bottom: 1px solid #ddd;
-    }
-    nav a {
-      margin: 0 0.75rem;
-      text-decoration: none;
-      color: inherit;
     }
     input {
       padding: 0.5rem 1rem;
@@ -24,17 +21,46 @@ export class AppHeader extends LitElement {
     }
   `;
 
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("clear-search", this.onClearSearch as EventListener);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener(
+      "clear-search",
+      this.onClearSearch as EventListener
+    );
+  }
+
+  onClearSearch = () => {
+    this.searchTerm = "";
+  };
+
+  handleInput(e: Event) {
+    const value = (e.target as HTMLInputElement).value;
+    this.searchTerm = value;
+
+    this.dispatchEvent(
+      new CustomEvent("search-changed", {
+        detail: { term: value },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
+
   render() {
     return html`
       <header>
-        <div>
-          <strong>🌟 StarFolk</strong>
-          <nav>
-            <a href="/">Home</a>
-            <a href="/characters">Characters</a>
-          </nav>
-        </div>
-        <input type="search" placeholder="Search for Star Wars characters" />
+        <div class="logo">🌟 StarFolk</div>
+        <input
+          type="search"
+          placeholder="Search for Star Wars characters"
+          .value=${this.searchTerm}
+          @input=${this.handleInput}
+        />
       </header>
     `;
   }
