@@ -1,4 +1,4 @@
-import api from './api';
+import api from "./api";
 
 export interface Character {
   id: number;
@@ -9,18 +9,18 @@ export interface Character {
   short_description: string;
   featured: boolean;
   films: string[];
-  birth_year: string; 
+  birth_year: string;
   description?: any[];
 }
 
 export const CharacterService = {
   async getAll(): Promise<Character[]> {
     try {
-      const res = await api.get('/characters');
+      const res = await api.get("/characters");
       return res.data;
     } catch (error) {
-      console.error('Failed to fetch characters:', error);
-      throw new Error('Unable to fetch characters');
+      console.error("Failed to fetch characters:", error);
+      throw new Error("Unable to fetch characters");
     }
   },
 
@@ -30,17 +30,17 @@ export const CharacterService = {
       return res.data;
     } catch (error) {
       console.error(`Failed to fetch character ${id}:`, error);
-      throw new Error('Character not found');
+      throw new Error("Character not found");
     }
   },
 
   async getFeatured(): Promise<Character[]> {
     try {
-      const res = await api.get('/characters/featured');
+      const res = await api.get("/characters/featured");
       return res.data;
     } catch (error) {
-      console.error('Failed to fetch featured characters:', error);
-      throw new Error('Unable to fetch featured characters');
+      console.error("Failed to fetch featured characters:", error);
+      throw new Error("Unable to fetch featured characters");
     }
   },
 };

@@ -40,7 +40,8 @@ export class DetailView extends LitElement {
         margin: 1rem 0;
       }
 
-      p, li {
+      p,
+      li {
         font-weight: 400;
         font-style: Regular;
         font-size: 14px;

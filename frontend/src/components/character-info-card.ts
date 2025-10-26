@@ -50,7 +50,7 @@ export class CharacterInfoCard extends LitElement {
         font-size: 16px;
         line-height: 100%;
         letter-spacing: -3%;
-        color: #AAA5A5;;
+        color: #aaa5a5;
         border-bottom: 1px solid #d8d4d4;
       }
 
@@ -60,7 +60,7 @@ export class CharacterInfoCard extends LitElement {
         font-size: 16px;
         line-height: 100%;
         letter-spacing: -3%;
-        color:#464343;
+        color: #464343;
       }
 
       ul {
@@ -70,12 +70,12 @@ export class CharacterInfoCard extends LitElement {
       }
 
       li {
-                font-weight: 400;
+        font-weight: 400;
         font-style: Regular;
         font-size: 16px;
         line-height: 100%;
         letter-spacing: -3%;
-        color:#464343;
+        color: #464343;
         line-height: 1.3;
       }
 

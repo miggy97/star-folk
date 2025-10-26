@@ -1,4 +1,4 @@
-import './app-root'
-import './styles/style.css'   
+import "./app-root";
+import "./styles/style.css";
 
-console.log('Lit app initialized 🚀')
+console.log("Lit app initialized 🚀");

@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from "lit";
 
 export const globalStyles = css`
   :host {
@@ -7,7 +7,12 @@ export const globalStyles = css`
     background-color: var(--color-bg);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     font-family: var(--font-main);
     color: var(--color-text);
@@ -18,9 +23,9 @@ export const globalStyles = css`
     color: var(--color-text);
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding: 0;
     margin: 0;
   }
-   
 `;

@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 /* === Box sizing & reset === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,8 +20,8 @@
   --color-accent: #eb6a00;
 
   /* 🧱 Typography */
-  --font-main: 'Inter Variable', system-ui, -apple-system, BlinkMacSystemFont,
-               'Segoe UI', Roboto, sans-serif;
+  --font-main: "Inter Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 
   /* 📏 Spacing scale */
   --space-xs: 4px;
@@ -36,7 +38,8 @@
 }
 
 /* === Base document === */
-html, body {
+html,
+body {
   height: 100%;
   font-family: var(--font-main);
   font-size: 14px;

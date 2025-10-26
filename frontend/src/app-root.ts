@@ -45,7 +45,6 @@ export class AppRoot extends LitElement {
         z-index: 0;
       }
 
-
       .page-frame {
         position: relative;
         z-index: 1;

@@ -72,8 +72,6 @@ export class FeaturedCharacters extends LitElement {
         flex-grow: 1;
       }
 
-
-
       .error {
         color: red;
         font-size: 0.9rem;
@@ -84,19 +82,25 @@ export class FeaturedCharacters extends LitElement {
         font-size: 0.9rem;
         color: #666;
       }
-    `
+    `,
   ];
 
   connectedCallback() {
     super.connectedCallback();
     this.loadFeatured();
     this.updateCurrentIdFromRoute();
-    window.addEventListener("popstate", this.updateCurrentIdFromRoute.bind(this));
+    window.addEventListener(
+      "popstate",
+      this.updateCurrentIdFromRoute.bind(this)
+    );
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener("popstate", this.updateCurrentIdFromRoute.bind(this));
+    window.removeEventListener(
+      "popstate",
+      this.updateCurrentIdFromRoute.bind(this)
+    );
   }
 
   updateCurrentIdFromRoute() {
@@ -132,7 +136,8 @@ export class FeaturedCharacters extends LitElement {
   render() {
     if (this.loading) return html`<p>Loading featured characters...</p>`;
     if (this.error) return html`<p class="error">${this.error}</p>`;
-    if (!this.featured.length) return html`<p class="empty">No featured characters found.</p>`;
+    if (!this.featured.length)
+      return html`<p class="empty">No featured characters found.</p>`;
 
     return html`
       <h3>Featured Characters:</h3>
@@ -142,10 +147,19 @@ export class FeaturedCharacters extends LitElement {
           const isRebel = char.side === "Rebels";
 
           return html`
-            <li ?selected=${isSelected} @click=${() => this.handleClick(char.id)}>
+            <li
+              ?selected=${isSelected}
+              @click=${() => this.handleClick(char.id)}
+            >
               ${isRebel
-                ? html`<icon-rebels ?selected=${isSelected} size="24"></icon-rebels>`
-                : html`<icon-empire ?selected=${isSelected} size="24"></icon-empire>`}
+                ? html`<icon-rebels
+                    ?selected=${isSelected}
+                    size="24"
+                  ></icon-rebels>`
+                : html`<icon-empire
+                    ?selected=${isSelected}
+                    size="24"
+                  ></icon-empire>`}
               <a>${char.name}</a>
             </li>
           `;

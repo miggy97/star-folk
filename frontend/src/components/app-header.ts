@@ -83,7 +83,7 @@ export class AppHeader extends LitElement {
       /* Input field */
       input {
         width: 100%;
-        padding: .8rem 1rem 0.8rem 3rem;
+        padding: 0.8rem 1rem 0.8rem 3rem;
         border-radius: 9999px;
         border: 1px solid #ddd;
         font-family: inherit;
@@ -94,7 +94,7 @@ export class AppHeader extends LitElement {
       }
 
       input::placeholder {
-        color: #71717A;
+        color: #71717a;
       }
 
       input:focus {
