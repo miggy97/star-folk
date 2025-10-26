@@ -13,7 +13,6 @@ A simple **FastAPI backend** with a preloaded **SQLite database** containing Sta
 
 ```bash
 # 1. Clone the repo and move to backend folder
-git clone https://github.com/yourusername/star-folk.git
 cd star-folk/backend
 
 # 2. Create and activate a virtual environment
