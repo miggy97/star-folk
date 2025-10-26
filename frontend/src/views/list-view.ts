@@ -4,10 +4,9 @@ import {
   CharacterService,
   type Character,
 } from "../services/character.service";
-import { Router } from "@lit-labs/router";
 import { globalStyles } from "../styles/global-styles";
-
-declare const router: Router; // optional if you export router globally
+import "../assets/icons/icon-rebels";
+import "../assets/icons/icon-empire";
 
 @customElement("list-view")
 export class ListView extends LitElement {
@@ -16,22 +15,67 @@ export class ListView extends LitElement {
   @state() loading = false;
   @state() error = "";
 
-  static styles =  [
-  globalStyles,
-  css`
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      cursor: pointer;
-      padding: 0.5rem;
-      border-bottom: 1px solid #ddd;
-    }
-    li:hover {
-      background: #f5f5f5;
-    }
-  `];
+  static styles = [
+    globalStyles,
+    css`
+      :host {
+        display: flex;
+        justify-content: center;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        min-height: 4rem;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #d8d4d4;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.25s ease;
+      }
+
+      li:hover {
+        background-color: #f5f5f5;
+      }
+
+      li:hover icon-rebels,
+      li:hover icon-empire {
+        fill: #eb6a00;
+      }
+
+      .info {
+        flex-grow: 1;
+      }
+
+      .name-line {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+
+      .name {
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: 0%;
+      }
+
+      .birth {
+        font-size: 14px;
+        color: #8b8b8b;
+      }
+
+      .description {
+        margin-top: 0.25rem;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+        letter-spacing: 0%;
+      }
+    `,
+  ];
 
   updated(changed: PropertyValues) {
     if (changed.has("searchTerm")) {
@@ -52,25 +96,20 @@ export class ListView extends LitElement {
       this.loading = true;
       const all = await CharacterService.getAll();
 
-      // Step 1: filter only those that match
       const matches = all.filter((c) => c.name.toLowerCase().includes(term));
 
-      // Step 2: rank by "closeness" of match
       this.characters = matches.sort((a, b) => {
         const nameA = a.name.toLowerCase();
         const nameB = b.name.toLowerCase();
 
-        // exact match first
         if (nameA === term && nameB !== term) return -1;
         if (nameB === term && nameA !== term) return 1;
 
-        // prefix match second
         const aStarts = nameA.startsWith(term);
         const bStarts = nameB.startsWith(term);
         if (aStarts && !bStarts) return -1;
         if (bStarts && !aStarts) return 1;
 
-        // then alphabetical fallback
         return nameA.localeCompare(nameB);
       });
 
@@ -84,7 +123,7 @@ export class ListView extends LitElement {
 
   goToDetail(id: number) {
     history.pushState(null, "", `/characters/${id}`);
-    window.dispatchEvent(new PopStateEvent("popstate")); // trigger router refresh
+    window.dispatchEvent(new PopStateEvent("popstate"));
     this.dispatchEvent(
       new CustomEvent("character-selected", {
         detail: { id },
@@ -116,12 +155,23 @@ export class ListView extends LitElement {
     }
 
     return html`
-      <h2>Results for "${this.searchTerm}"</h2>
       <ul>
         ${this.characters.map(
           (c) => html`
             <li @click=${() => this.goToDetail(c.id)}>
-              <strong>${c.name}</strong> — ${c.short_description}
+              ${c.side.toLowerCase() === "rebels"
+                ? html`<icon-rebels></icon-rebels>`
+                : html`<icon-empire></icon-empire>`}
+
+              <div class="info">
+                <div class="name-line">
+                  <h3 class="name">${c.name}</h3>
+                  ${c.birth_year
+                    ? html`<span class="birth">${c.birth_year}</span>`
+                    : ""}
+                </div>
+                <div class="description">${c.short_description}</div>
+              </div>
             </li>
           `
         )}
