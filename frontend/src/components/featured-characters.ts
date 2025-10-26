@@ -2,6 +2,9 @@ import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import { CharacterService } from "../services/character.service";
 import type { Character } from "../services/character.service";
+import { globalStyles } from "../styles/global-styles";
+import "../assets/icons/icon-rebels";
+import "../assets/icons/icon-empire";
 
 @customElement("featured-characters")
 export class FeaturedCharacters extends LitElement {
@@ -9,38 +12,55 @@ export class FeaturedCharacters extends LitElement {
   @state() loading = true;
   @state() error = "";
 
-  static styles = css`
+  static styles =  [
+  globalStyles,
+  css`
     :host {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 1rem;
+      background-color: white;
+      border: 1px solid #e7e4e4;
+      border-radius: 1rem;
+      box-shadow: 0px 8px 24px 0px #00000008;
     }
 
     h3 {
-      margin-top: 0;
-      font-size: 1.1rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.5rem;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: 0%;
     }
 
     ul {
       list-style: none;
-      padding: 0;
-      margin: 0.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
     li {
-      margin: 0.25rem 0;
+      background-color: #f9f7f7;
+      border-radius: 1rem;
     }
 
     a {
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: 0%;
       text-decoration: none;
-      color: #333;
+      color: #464343;
       display: block;
-      padding: 0.4rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.5rem 0.5rem;
+      border-radius: 1rem;
     }
 
     a:hover {
-      background-color: #f0f0f0;
+      background-color: #f1efef;
     }
 
     .error {
@@ -53,7 +73,7 @@ export class FeaturedCharacters extends LitElement {
       font-size: 0.9rem;
       color: #666;
     }
-  `;
+  `];
 
   connectedCallback() {
     super.connectedCallback();
@@ -96,12 +116,19 @@ export class FeaturedCharacters extends LitElement {
     }
 
     return html`
-      <h3>Featured Characters</h3>
+      <h3>Featured Characters:</h3>
       <ul>
         ${this.featured.map(
           (char) => html`
             <li>
-              <a href="/characters/${char.id}"  @click=${() => this.handleClick(char.id)}> ${char.name} </a>
+              <icon-rebels selected></icon-rebels>
+              <icon-empire></icon-empire>
+              <a
+                href="/characters/${char.id}"
+                @click=${() => this.handleClick(char.id)}
+              >
+                ${char.name}
+              </a>
             </li>
           `
         )}

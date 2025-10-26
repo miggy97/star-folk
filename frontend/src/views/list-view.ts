@@ -5,6 +5,7 @@ import {
   type Character,
 } from "../services/character.service";
 import { Router } from "@lit-labs/router";
+import { globalStyles } from "../styles/global-styles";
 
 declare const router: Router; // optional if you export router globally
 
@@ -15,7 +16,9 @@ export class ListView extends LitElement {
   @state() loading = false;
   @state() error = "";
 
-  static styles = css`
+  static styles =  [
+  globalStyles,
+  css`
     ul {
       list-style: none;
       padding: 0;
@@ -28,7 +31,7 @@ export class ListView extends LitElement {
     li:hover {
       background: #f5f5f5;
     }
-  `;
+  `];
 
   updated(changed: PropertyValues) {
     if (changed.has("searchTerm")) {

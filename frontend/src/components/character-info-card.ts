@@ -1,9 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { globalStyles } from "../styles/global-styles";
 
 @customElement('character-info-card')
 export class CharacterInfoCard extends LitElement {
-  static styles = css`
+  static styles = [
+  globalStyles,
+  css`
     div {
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -13,7 +16,7 @@ export class CharacterInfoCard extends LitElement {
     p {
       margin: 0.25rem 0;
     }
-  `;
+  `];
 
   render() {
     return html`

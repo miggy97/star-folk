@@ -1,12 +1,15 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { globalStyles } from "../styles/global-styles";
 
 @customElement('home-view')
 export class HomeView extends LitElement {
-  static styles = css`
+  static styles =  [
+  globalStyles,
+  css`
     h2 { margin-bottom: 1rem; }
     ul { line-height: 1.8; }
-  `;
+  `];
 
   render() {
     return html`

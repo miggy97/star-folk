@@ -1,11 +1,14 @@
 import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
+import { globalStyles } from "../styles/global-styles";
 
 @customElement("app-header")
 export class AppHeader extends LitElement {
   @state() searchTerm = "";
 
-  static styles = css`
+  static styles =  [
+  globalStyles,
+  css`
     header {
       display: flex;
       align-items: center;
@@ -19,7 +22,7 @@ export class AppHeader extends LitElement {
       border: 1px solid #ccc;
       width: 250px;
     }
-  `;
+  `];
 
   connectedCallback() {
     super.connectedCallback();

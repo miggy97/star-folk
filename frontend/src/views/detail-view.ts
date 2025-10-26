@@ -4,6 +4,7 @@ import { customElement, property, state } from "lit/decorators.js";
 import { CharacterService } from "../services/character.service";
 import type { Character } from "../services/character.service";
 import "../components/character-info-card";
+import { globalStyles } from "../styles/global-styles";
 
 @customElement("detail-view")
 export class DetailView extends LitElement {
@@ -12,7 +13,9 @@ export class DetailView extends LitElement {
   @state() loading = true;
   @state() error = "";
 
-  static styles = css`
+  static styles =  [
+  globalStyles,
+  css`
     .container {
       display: flex;
       gap: 2rem;
@@ -20,7 +23,7 @@ export class DetailView extends LitElement {
     .error {
       color: red;
     }
-  `;
+  `];
 
   connectedCallback() {
     super.connectedCallback();
