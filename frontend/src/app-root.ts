@@ -3,7 +3,7 @@ import { customElement, state } from "lit/decorators.js";
 import { Router } from "@lit-labs/router";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { globalStyles } from "./styles/global-styles";
-
+import spaceShipUrl from "./assets/space-ship-bg.png?url";
 
 import "./components/app-header";
 import "./components/featured-characters";
@@ -31,34 +31,43 @@ export class AppRoot extends LitElement {
   ]);
 
   static styles = [
-  globalStyles,
-  css`
-    :host {
-      display: block;
-      min-height: 100vh;
-    }
+    globalStyles,
+    css`
+      :host {
+        display: block;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .page-frame {
-      display: flex;
-      flex-direction: column;
-      gap:2.5rem;
-      min-height: 100vh;
+      .space-ship {
+        position: absolute;
+        z-index: 0;
+      }
 
-      padding-block: 50px;
-      padding-inline: clamp(2rem, 8vw, 122px);
-      box-sizing: border-box;
-    }
-    main {
-      display: flex;
-      gap: 2rem
-    }
 
-    section {
-      flex: 1;
-      overflow-y: auto;
-    }
-  `
-  ]
+      .page-frame {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-height: 100vh;
+        padding-block: 50px;
+        padding-inline: clamp(2rem, 8vw, 122px);
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        gap: 2rem;
+      }
+
+      section {
+        flex: 1;
+        overflow-y: auto;
+      }
+    `,
+  ];
 
   connectedCallback() {
     super.connectedCallback();
@@ -112,6 +121,7 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
+      <img class="space-ship" src=${spaceShipUrl} />
       <div class="page-frame">
         <app-header></app-header>
         <main>
