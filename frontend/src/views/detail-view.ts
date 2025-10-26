@@ -13,17 +13,52 @@ export class DetailView extends LitElement {
   @state() loading = true;
   @state() error = "";
 
-  static styles =  [
-  globalStyles,
-  css`
-    .container {
-      display: flex;
-      gap: 2rem;
-    }
-    .error {
-      color: red;
-    }
-  `];
+  static styles = [
+    globalStyles,
+    css`
+      .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 2rem;
+        line-height: 38px;
+        letter-spacing: -3%;
+        margin-bottom: 1.25rem;
+      }
+
+      h3 {
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: 0%;
+        margin: 1rem 0;
+      }
+
+      p, li {
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 14px;
+        line-height: 160%;
+        letter-spacing: 0%;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .error {
+        color: red;
+      }
+    `,
+  ];
 
   connectedCallback() {
     super.connectedCallback();
@@ -67,28 +102,20 @@ export class DetailView extends LitElement {
       <div class="container">
         <article>
           <h2>${this.character.name}</h2>
-          <p>${this.character.short_description}</p>
-          <p><strong>Side:</strong> ${this.character.side}</p>
-          <p><strong>Films:</strong> ${this.character.films.join(", ")}</p>
 
-          <h3>About</h3>
-          <ul>
-            ${this.character.description?.map((block: any) =>
-              block.type === "paragraph"
-                ? html`<p>${block.text}</p>`
-                : html`
-                    <h4>${block.title}</h4>
-                    <ul>
-                      ${block.items.map(
-                        (item: string) => html`<li>${item}</li>`
-                      )}
-                    </ul>
-                  `
-            )}
-          </ul>
+          ${this.character.description?.map((block: any) =>
+            block.type === "paragraph"
+              ? html`<p>${block.text}</p>`
+              : html`
+                  <h3>${block.title}</h3>
+                  <ul>
+                    ${block.items.map((item: string) => html`<li>${item}</li>`)}
+                  </ul>
+                `
+          )}
         </article>
 
-        <character-info-card></character-info-card>
+        <character-info-card .character=${this.character}></character-info-card>
       </div>
     `;
   }

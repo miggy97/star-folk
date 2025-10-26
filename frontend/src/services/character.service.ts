@@ -3,6 +3,8 @@ import api from './api';
 export interface Character {
   id: number;
   name: string;
+  gender: string;
+  homeworld: string;
   side: string;
   short_description: string;
   featured: boolean;
