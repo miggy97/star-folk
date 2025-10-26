@@ -33,7 +33,8 @@ This creates a local `starwars.db` file with all characters preloaded.
 
 ### 🏃 Run the Server
 
-`python -m app.main # or uvicorn app.main:app --reload` 
+`python -m app.main 
+# or uvicorn app.main:app --reload` 
 
 Then open your browser at:
 
