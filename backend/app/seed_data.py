@@ -11,7 +11,8 @@ def seed_data():
                 name="Anakin Skywalker",
                 gender="Male",
                 homeworld="Tatooine",
-                side="Jedi Order / Galactic Empire",
+                side="Empire",
+                birth_year="41.9BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "A New Hope", "The Empire Strikes Back", "Return of the Jedi"],
                 short_description="Jedi Knight who fell to the dark side and became Darth Vader.",
                 description=[
@@ -36,7 +37,8 @@ def seed_data():
                 name="Padmé Amidala",
                 gender="Female",
                 homeworld="Naboo",
-                side="Galactic Republic",
+                side="Rebels",
+                birth_year="46BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
                 short_description="Queen and later Senator of Naboo, wife of Anakin Skywalker.",
                 description=[
@@ -58,7 +60,8 @@ def seed_data():
                 name="Luke Skywalker",
                 gender="Male",
                 homeworld="Tatooine",
-                side="Jedi Order / Rebel Alliance",
+                side="Rebels",
+                birth_year="19BBY",
                 films=["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Jedi Knight and hero of the Rebellion.",
                 description=[
@@ -81,7 +84,8 @@ def seed_data():
                 name="Leia Organa",
                 gender="Female",
                 homeworld="Alderaan",
-                side="Rebel Alliance / Resistance",
+                side="Rebels",
+                birth_year="19BBY",
                 films=["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Princess, senator, and leader of the Rebellion.",
                 description=[
@@ -110,7 +114,8 @@ def seed_data():
                 name="Ben Solo / Kylo Ren",
                 gender="Male",
                 homeworld="Chandrila",
-                side="First Order / Dark Side",
+                side="Empire",
+                birth_year="5ABY",
                 films=["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Son of Leia and Han Solo, tempted by the Dark Side.",
                 description=[
@@ -132,7 +137,8 @@ def seed_data():
                 name="Darth Vader",
                 gender="Male",
                 homeworld="Tatooine",
-                side="Galactic Empire / Sith",
+                side="Empire",
+                birth_year="41.9BBY",
                 films=["A New Hope", "The Empire Strikes Back", "Return of the Jedi"],
                 short_description="Once a Jedi Knight, later became the Sith Lord Darth Vader.",
                 description=[
@@ -154,7 +160,8 @@ def seed_data():
                 name="Shmi Skywalker",
                 gender="Female",
                 homeworld="Tatooine",
-                side="Neutral",
+                side="Rebels",
+                birth_year="72BBY",
                 films=["The Phantom Menace"],
                 short_description="Mother of Anakin Skywalker who raised him on Tatooine.",
                 description=[
@@ -170,7 +177,8 @@ def seed_data():
                 name="Lando Calrissian",
                 gender="Male",
                 homeworld="Socorro",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="31BBY",
                 films=["The Empire Strikes Back", "Return of the Jedi", "The Rise of Skywalker"],
                 short_description="Charming gambler turned Rebel general.",
                 description=[
@@ -183,13 +191,12 @@ def seed_data():
                 ],
                 featured=True
             ),
-
-                        # --- OBI-WAN KENOBI ---
             Character(
                 name="Obi-Wan Kenobi",
                 gender="Male",
                 homeworld="Stewjon",
-                side="Jedi Order",
+                side="Rebels",
+                birth_year="57BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "A New Hope"],
                 short_description="Jedi Master who trained Anakin and Luke Skywalker.",
                 description=[
@@ -208,13 +215,12 @@ def seed_data():
                 ],
                 featured=False
             ),
-
-            # --- YODA ---
             Character(
                 name="Yoda",
                 gender="Male",
                 homeworld="Unknown",
-                side="Jedi Order",
+                side="Rebels",
+                birth_year="896BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "The Empire Strikes Back", "Return of the Jedi"],
                 short_description="Grand Master of the Jedi Order for over 800 years.",
                 description=[
@@ -233,13 +239,13 @@ def seed_data():
                 ],
                 featured=False
             ),
-
-            # --- QUI-GON JINN ---
+                        # --- QUI-GON JINN ---
             Character(
                 name="Qui-Gon Jinn",
                 gender="Male",
                 homeworld="Coruscant",
-                side="Jedi Order",
+                side="Rebels",
+                birth_year="92BBY",
                 films=["The Phantom Menace"],
                 short_description="Maverick Jedi Master who discovered Anakin Skywalker.",
                 description=[
@@ -264,7 +270,8 @@ def seed_data():
                 name="Han Solo",
                 gender="Male",
                 homeworld="Corellia",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="29BBY",
                 films=["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Force Awakens"],
                 short_description="Smuggler turned hero and husband of Leia Organa.",
                 description=[
@@ -289,7 +296,8 @@ def seed_data():
                 name="Chewbacca",
                 gender="Male",
                 homeworld="Kashyyyk",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="200BBY",
                 films=["Revenge of the Sith", "A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Force Awakens"],
                 short_description="Loyal Wookiee warrior and co-pilot of the Millennium Falcon.",
                 description=[
@@ -314,7 +322,8 @@ def seed_data():
                 name="Darth Sidious / Emperor Palpatine",
                 gender="Male",
                 homeworld="Naboo",
-                side="Sith / Galactic Empire",
+                side="Empire",
+                birth_year="82BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "Return of the Jedi", "The Rise of Skywalker"],
                 short_description="Dark Lord of the Sith who rose to become Emperor of the Galaxy.",
                 description=[
@@ -339,7 +348,8 @@ def seed_data():
                 name="Count Dooku",
                 gender="Male",
                 homeworld="Serenno",
-                side="Sith",
+                side="Empire",
+                birth_year="102BBY",
                 films=["Attack of the Clones", "Revenge of the Sith"],
                 short_description="Former Jedi Master turned Sith Lord and leader of the Separatists.",
                 description=[
@@ -364,7 +374,8 @@ def seed_data():
                 name="Darth Maul",
                 gender="Male",
                 homeworld="Dathomir",
-                side="Sith",
+                side="Empire",
+                birth_year="54BBY",
                 films=["The Phantom Menace", "Solo: A Star Wars Story"],
                 short_description="Sith apprentice known for his double-bladed lightsaber and hatred of the Jedi.",
                 description=[
@@ -388,7 +399,8 @@ def seed_data():
                 name="Rey Skywalker",
                 gender="Female",
                 homeworld="Jakku",
-                side="Jedi Order / Resistance",
+                side="Rebels",
+                birth_year="15ABY",
                 films=["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Scavenger who became the last Jedi and heir to the Skywalker legacy.",
                 description=[
@@ -408,12 +420,13 @@ def seed_data():
                 featured=True
             ),
 
-                        # --- FINN ---
+            # --- FINN ---
             Character(
                 name="Finn",
                 gender="Male",
                 homeworld="Unknown",
-                side="Resistance",
+                side="Rebels",
+                birth_year="11ABY",
                 films=["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Former stormtrooper who defected to join the Resistance.",
                 description=[
@@ -438,7 +451,8 @@ def seed_data():
                 name="Poe Dameron",
                 gender="Male",
                 homeworld="Yavin IV",
-                side="Resistance",
+                side="Rebels",
+                birth_year="2ABY",
                 films=["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
                 short_description="Starfighter pilot and leader in the Resistance.",
                 description=[
@@ -463,7 +477,8 @@ def seed_data():
                 name="Jyn Erso",
                 gender="Female",
                 homeworld="Vallt",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="22BBY",
                 films=["Rogue One"],
                 short_description="Leader of Rogue One who stole the Death Star plans.",
                 description=[
@@ -488,7 +503,8 @@ def seed_data():
                 name="Cassian Andor",
                 gender="Male",
                 homeworld="Fest",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="26BBY",
                 films=["Rogue One"],
                 short_description="Rebel intelligence officer and spy in Rogue One.",
                 description=[
@@ -513,7 +529,8 @@ def seed_data():
                 name="R2-D2",
                 gender="None",
                 homeworld="Naboo",
-                side="Rebel Alliance / Resistance",
+                side="Rebels",
+                birth_year="33BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Force Awakens", "The Last Jedi"],
                 short_description="Astromech droid who served Padmé, Anakin, and Luke Skywalker.",
                 description=[
@@ -532,14 +549,18 @@ def seed_data():
                 ],
                 featured=False
             ),
-
-            # --- C-3PO ---
+                        # --- C-3PO ---
             Character(
                 name="C-3PO",
                 gender="None",
                 homeworld="Tatooine",
-                side="Rebel Alliance / Resistance",
-                films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith", "A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
+                side="Rebels",
+                birth_year="112BBY",
+                films=[
+                    "The Phantom Menace", "Attack of the Clones", "Revenge of the Sith",
+                    "A New Hope", "The Empire Strikes Back", "Return of the Jedi",
+                    "The Force Awakens", "The Last Jedi", "The Rise of Skywalker"
+                ],
                 short_description="Protocol droid fluent in over six million forms of communication.",
                 description=[
                     {"type": "paragraph", "text": "C-3PO was a humanoid protocol droid built by Anakin Skywalker and known for his cautious personality and encyclopedic knowledge of languages."},
@@ -563,7 +584,8 @@ def seed_data():
                 name="Bail Organa",
                 gender="Male",
                 homeworld="Alderaan",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="67BBY",
                 films=["Attack of the Clones", "Revenge of the Sith", "Rogue One"],
                 short_description="Senator of Alderaan and adoptive father of Leia Organa.",
                 description=[
@@ -581,12 +603,14 @@ def seed_data():
                 ],
                 featured=False
             ),
-                        # --- MACE WINDU ---
+
+            # --- MACE WINDU ---
             Character(
                 name="Mace Windu",
                 gender="Male",
                 homeworld="Haruun Kal",
-                side="Jedi Order",
+                side="Rebels",
+                birth_year="72BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
                 short_description="Respected Jedi Master and member of the Jedi Council.",
                 description=[
@@ -610,7 +634,8 @@ def seed_data():
                 name="General Grievous",
                 gender="Male (Cyborg)",
                 homeworld="Kalee",
-                side="Confederacy of Independent Systems",
+                side="Empire",
+                birth_year="Unknown",
                 films=["Revenge of the Sith"],
                 short_description="Cyborg general of the Separatist droid army, trained in Jedi arts.",
                 description=[
@@ -629,12 +654,13 @@ def seed_data():
                 featured=False
             ),
 
-            # --- SNOKE ---
+            # --- SUPREME LEADER SNOKE ---
             Character(
                 name="Supreme Leader Snoke",
                 gender="Male",
                 homeworld="Unknown",
-                side="First Order",
+                side="Empire",
+                birth_year="Unknown",
                 films=["The Force Awakens", "The Last Jedi"],
                 short_description="Supreme Leader of the First Order and mentor to Kylo Ren.",
                 description=[
@@ -658,7 +684,8 @@ def seed_data():
                 name="Ahsoka Tano",
                 gender="Female",
                 homeworld="Shili",
-                side="Jedi Order / Rebel Alliance",
+                side="Rebels",
+                birth_year="36BBY",
                 films=["The Clone Wars", "Rebels", "Ahsoka (Series)"],
                 short_description="Former Jedi Padawan of Anakin Skywalker who became a key Rebel leader.",
                 description=[
@@ -683,7 +710,8 @@ def seed_data():
                 name="Mon Mothma",
                 gender="Female",
                 homeworld="Chandrila",
-                side="Rebel Alliance",
+                side="Rebels",
+                birth_year="46BBY",
                 films=["Revenge of the Sith", "Rogue One", "Return of the Jedi"],
                 short_description="Founder and political leader of the Rebel Alliance.",
                 description=[
@@ -707,7 +735,8 @@ def seed_data():
                 name="Jar Jar Binks",
                 gender="Male",
                 homeworld="Naboo",
-                side="Galactic Republic",
+                side="Rebels",
+                birth_year="52BBY",
                 films=["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
                 short_description="Gungan from Naboo who played an accidental role in galactic events.",
                 description=[
@@ -726,15 +755,17 @@ def seed_data():
                 featured=False
             ),
 
-            # --- QUI-GON'S MASTER (COUNT DOOKU'S CONNECTION ALREADY COVERED) ---
-
-            # --- BOBBA FETT ---
+            # --- BOBA FETT ---
             Character(
                 name="Boba Fett",
                 gender="Male",
                 homeworld="Kamino",
-                side="Bounty Hunter / Mandalorian",
-                films=["The Empire Strikes Back", "Return of the Jedi", "The Mandalorian", "The Book of Boba Fett"],
+                side="Empire",
+                birth_year="32BBY",
+                films=[
+                    "The Empire Strikes Back", "Return of the Jedi",
+                    "The Mandalorian", "The Book of Boba Fett"
+                ],
                 short_description="Feared bounty hunter who survived the Sarlacc pit.",
                 description=[
                     {"type": "paragraph", "text": "Boba Fett was a legendary bounty hunter, cloned from Jango Fett. His armor and reputation made him one of the most feared figures in the galaxy."},
@@ -751,13 +782,13 @@ def seed_data():
                 ],
                 featured=True
             ),
-
-            # --- JANGO FETT ---
+                        # --- JANGO FETT ---
             Character(
                 name="Jango Fett",
                 gender="Male",
                 homeworld="Concord Dawn",
-                side="Bounty Hunter",
+                side="Empire",
+                birth_year="66BBY",
                 films=["Attack of the Clones"],
                 short_description="Renowned bounty hunter and genetic template for the clone army.",
                 description=[
@@ -775,7 +806,6 @@ def seed_data():
                 ],
                 featured=False
             ),
-
         ]
 
         db.add_all(characters)

@@ -34,6 +34,7 @@ def get_characters(db: Session = Depends(get_db)):
             "name": c.name,
             "short_description": c.short_description,
             "side": c.side,
+            "birth_year": c.birth_year,
         }
         for c in characters
     ]

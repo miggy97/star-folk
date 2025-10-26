@@ -7,6 +7,7 @@ export interface Character {
   short_description: string;
   featured: boolean;
   films: string[];
+  birth_year: string; 
   description?: any[];
 }
 

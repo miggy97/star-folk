@@ -9,6 +9,7 @@ class Character(Base):
     gender = Column(String)
     homeworld = Column(String)
     side = Column(String)
+    birth_year = Column(String)
     films = Column(JSON)
     short_description = Column(String)
     description = Column(JSON)      # ✅ structured JSON
